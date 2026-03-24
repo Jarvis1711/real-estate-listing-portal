@@ -1,22 +1,19 @@
-GET /api/health response:
-{"status":"ok","app":"Real Estate Listing Portal"}
+GET /api/health
+{"status":"ok","app":"Real Estate Listing Portal","domain":"FinTech"}
 
-POST /api/items response:
+GET /api/schema
+{"statuses":["logged", "reconciled", "audited", "reported"],"fields":[{"key":"account_or_wallet"},{"key":"amount"},{"key":"risk_notes"}]}
+
+POST /api/records
 {
-    "id": 1,
-    "title": "Demo item",
-    "details": "Created from PoC command",
-    "status": "active",
-    "created_at": "2026-03-24T15:35:11.500356+00:00"
+  "id": 1,
+  "title": "Demo Record",
+  "status": "reconciled",
+  "payload": {
+    "account_or_wallet": "Demo value",
+    "amount": 12,
+    "risk_notes": "seed note"
+  },
+  "created_at": "2026-03-24T15:52:22.280287+00:00",
+  "updated_at": "2026-03-24T15:52:22.280287+00:00"
 }
-
-GET /api/items response:
-[
-    {
-        "id": 1,
-        "title": "Demo item",
-        "details": "Created from PoC command",
-        "status": "active",
-        "created_at": "2026-03-24T15:35:11.500366+00:00"
-    }
-]

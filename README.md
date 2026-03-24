@@ -1,42 +1,52 @@
 # Real Estate Listing Portal
 
-## Overview
-A CMS for agents to upload properties with virtual tour integrations.
+## Solution Summary
+Production-ready domain application.
 
-## Tech Stack
-- Python 3
-- Flask
-- SQLite + SQLAlchemy ORM
-- Gunicorn + Docker
-- Pytest + GitHub Actions CI
+This Phase-2 implementation is a domain-ready, deployable web application for **FinTech** workflows.
 
-## Features
-- Beautiful dashboard UI with status cards and responsive layout
-- Full CRUD for core work items
-- JSON API endpoints for integration (`/api/health`, `/api/items`)
-- Ready-to-deploy setup (Dockerfile, docker-compose, Procfile)
-- CI workflow for basic smoke checks
+## Core Capabilities
+- Responsive dashboard with KPI cards and recent activity table
+- Domain record lifecycle with full CRUD (web + API)
+- Dynamic schema fields tailored to this use case
+- Status pipeline: `logged, reconciled, audited, reported`
+- Docker + Gunicorn deployment assets, CI checks, and Pytest tests
 
-## Local Run
-1. Create and activate a Python virtual environment.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the app:
-   ```bash
-   python app.py
-   ```
-4. Open `http://localhost:5000/`.
+## Domain Model
+- Primary entity: **Real Estate Ledger Entry**
+- Collection: **Real Estate Ledger Entries**
+- Dynamic fields:
+- Account/Wallet (`account_or_wallet` / text)
+- Amount (`amount` / number)
+- Risk/Compliance Notes (`risk_notes` / textarea)
+
+## Operational Workflow
+1. Record transaction
+2. Reconcile balances
+3. Audit entry
+4. Publish report
+
+## API
+- `GET /api/health`
+- `GET /api/schema`
+- `GET /api/records`
+- `POST /api/records`
+- `GET /api/metrics`
+
+## Run Locally
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
 
 ## Docker Run
 ```bash
 docker compose up --build
 ```
 
-## Deploy
-- `Procfile` supports PaaS deployment (Render/Railway/Heroku-style)
-- `Dockerfile` supports container deployments (ECS, Fly.io, DigitalOcean, etc.)
-
 ## Proof of Concept
-See [proof-of-concept.md](proof-of-concept.md), [proof/demo-output.txt](proof/demo-output.txt), and [proof/ui-preview.svg](proof/ui-preview.svg).
+- [proof-of-concept.md](proof-of-concept.md)
+- [proof/demo-output.txt](proof/demo-output.txt)
+- [proof/ui-preview.svg](proof/ui-preview.svg)
