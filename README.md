@@ -1,52 +1,51 @@
 # Real Estate Listing Portal
 
-## Solution Summary
-Production-ready domain application.
+## Phase 3 Upgrade Summary
+Production-oriented business solution for real estate listing portal workflows.
 
-This Phase-2 implementation is a domain-ready, deployable web application for **FinTech** workflows.
+## Domain Context
+- Domain: **Business**
+- Core Entity: **Commercial Workflow**
+- Lifecycle Statuses: `draft, qualified, approved, fulfilled`
 
-## Core Capabilities
-- Responsive dashboard with KPI cards and recent activity table
-- Domain record lifecycle with full CRUD (web + API)
-- Dynamic schema fields tailored to this use case
-- Status pipeline: `logged, reconciled, audited, reported`
-- Docker + Gunicorn deployment assets, CI checks, and Pytest tests
+## Architecture
+- Flask application factory pattern (`app/__init__.py`)
+- Layered backend (`routes` → `services` → `repositories`)
+- SQLAlchemy persistence with JSON payload modeling
+- REST API + HTML dashboard + CSV exports
+- Deployment surfaces (`Dockerfile`, `docker-compose.yml`, `Procfile`, `wsgi.py`)
 
-## Domain Model
-- Primary entity: **Real Estate Ledger Entry**
-- Collection: **Real Estate Ledger Entries**
-- Dynamic fields:
-- Account/Wallet (`account_or_wallet` / text)
-- Amount (`amount` / number)
-- Risk/Compliance Notes (`risk_notes` / textarea)
+## Capability Set
+- Role-ready modular architecture (routes, services, repositories)
+- Operational dashboard with status metrics and pipeline view
+- CRUD workflows via web UI and REST API
+- CSV export endpoint for reporting
+- Ready for production via Gunicorn, Docker, and Procfile
 
-## Operational Workflow
-1. Record transaction
-2. Reconcile balances
-3. Audit entry
-4. Publish report
+## Dynamic Schema
+- Client (`client` / text)
+- Value Estimate (`value_estimate` / number)
+- Commercial Notes (`commercial_notes` / textarea)
 
-## API
-- `GET /api/health`
-- `GET /api/schema`
-- `GET /api/records`
-- `POST /api/records`
-- `GET /api/metrics`
-
-## Run Locally
+## Quick Start
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python app.py
+python run.py
 ```
 
-## Docker Run
-```bash
-docker compose up --build
-```
+## API Highlights
+- `GET /api/health`
+- `GET /api/schema`
+- `GET /api/items`
+- `POST /api/items`
+- `PUT /api/items/<id>`
+- `DELETE /api/items/<id>`
+- `GET /api/metrics`
 
 ## Proof of Concept
 - [proof-of-concept.md](proof-of-concept.md)
 - [proof/demo-output.txt](proof/demo-output.txt)
 - [proof/ui-preview.svg](proof/ui-preview.svg)
+- [proof/architecture.md](proof/architecture.md)

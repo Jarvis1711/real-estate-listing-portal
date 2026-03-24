@@ -1,19 +1,19 @@
 GET /api/health
-{"status":"ok","app":"Real Estate Listing Portal","domain":"FinTech"}
+{"status":"ok"}
 
 GET /api/schema
-{"statuses":["logged", "reconciled", "audited", "reported"],"fields":[{"key":"account_or_wallet"},{"key":"amount"},{"key":"risk_notes"}]}
+{"domain":"Business","entity":"Commercial Workflow","statuses":["draft", "qualified", "approved", "fulfilled"]}
 
-POST /api/records
+POST /api/items
 {
   "id": 1,
-  "title": "Demo Record",
-  "status": "reconciled",
+  "title": "Phase3 Demo",
+  "status": "draft",
   "payload": {
-    "account_or_wallet": "Demo value",
-    "amount": 12,
-    "risk_notes": "seed note"
+    "client": "sample",
+    "value_estimate": 5,
+    "commercial_notes": "notes"
   },
-  "created_at": "2026-03-24T15:52:22.280287+00:00",
-  "updated_at": "2026-03-24T15:52:22.280287+00:00"
+  "created_at": "2026-03-24T16:15:11.790229+00:00",
+  "updated_at": "2026-03-24T16:15:11.790229+00:00"
 }
